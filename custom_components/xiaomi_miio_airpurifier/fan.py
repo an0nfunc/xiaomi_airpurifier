@@ -23,8 +23,8 @@ from miio import (  # pylint: disable=import-error
     Fan,
     Fan1C,
     FanLeshow,
-    FanP5,
     FanMiot,
+    FanP5,
 )
 from miio.airfresh import (  # pylint: disable=import-error, import-error
     LedBrightness as AirfreshLedBrightness,
@@ -42,9 +42,6 @@ from miio.airhumidifier import (  # pylint: disable=import-error, import-error
 from miio.airhumidifier_jsq import (  # pylint: disable=import-error, import-error
     LedBrightness as AirhumidifierJsqLedBrightness,
     OperationMode as AirhumidifierJsqOperationMode,
-)
-from miio.integrations.humidifier.deerma.airhumidifier_jsqs import (  # pylint: disable=import-error, import-error
-    OperationMode as AirhumidifierJsqsOperationMode,
 )
 from miio.airhumidifier_miot import (  # pylint: disable=import-error, import-error
     LedBrightness as AirhumidifierMiotLedBrightness,
@@ -73,10 +70,12 @@ from miio.fan_common import (  # pylint: disable=import-error, import-error
 from miio.integrations.fan.leshow.fan_leshow import (  # pylint: disable=import-error, import-error
     OperationMode as FanLeshowOperationMode,
 )
+from miio.integrations.humidifier.deerma.airhumidifier_jsqs import (  # pylint: disable=import-error, import-error
+    OperationMode as AirhumidifierJsqsOperationMode,
+)
 import voluptuous as vol
 
 from homeassistant.components.fan import (
-    ATTR_SPEED,
     PLATFORM_SCHEMA,
     SPEED_OFF,
     SUPPORT_DIRECTION,
@@ -225,6 +224,7 @@ PLATFORM_SCHEMA = PLATFORM_SCHEMA.extend(
 )
 
 ATTR_MODEL = "model"
+ATTR_SPEED = "speed"
 
 # Air Purifier
 ATTR_TEMPERATURE = "temperature"
